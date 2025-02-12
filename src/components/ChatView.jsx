@@ -7,10 +7,10 @@ const ChatView = ({ activeChat }) => {
 
   if (!activeChat) {
     return (
-      <div className="flex-1 flex items-center justify-center bg-gray-50">
+      <div className="flex-1 flex items-center justify-center bg-white">
         <div className="text-center">
-          <h3 className="text-lg font-medium text-gray-900">Welcome to Chat</h3>
-          <p className="mt-1 text-sm text-gray-500">Select a conversation to start messaging</p>
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">Welcome to Chat</h3>
+          <p className="text-sm text-gray-500">Select a conversation to start messaging</p>
         </div>
       </div>
     );
@@ -46,19 +46,19 @@ const ChatView = ({ activeChat }) => {
   };
 
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col bg-white">
       {/* Chat Header */}
-      <div className="px-6 py-4 border-b flex items-center gap-3">
-        <div className="relative">
+      <div className="px-6 py-4 border-b flex items-center gap-3 bg-white/50">
+        <div className="relative flex-shrink-0">
           <img
             src={activeChat.avatar}
             alt={activeChat.name}
-            className="w-10 h-10 rounded-full object-cover"
+            className="w-10 h-10 rounded-full object-cover border border-gray-200"
           />
           <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
         </div>
         <div>
-          <h2 className="font-medium text-gray-900">{activeChat.name}</h2>
+          <h2 className="font-semibold text-gray-900">{activeChat.name}</h2>
           <p className="text-sm text-gray-500">
             {activeChat.type === 'group' ? '12 members' : 'Active now'}
           </p>
@@ -66,21 +66,21 @@ const ChatView = ({ activeChat }) => {
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-6">
-        <div className="space-y-4">
+      <div className="flex-1 overflow-y-auto p-6 bg-gray-50/50">
+        <div className="space-y-4 max-w-3xl mx-auto">
           {messages.map((msg) => (
             <div
               key={msg.id}
               className={`flex ${msg.sender === 'me' ? 'justify-end' : 'justify-start'}`}
             >
               <div
-                className={`max-w-[70%] rounded-2xl px-4 py-2 ${
+                className={`max-w-[70%] rounded-2xl px-4 py-2 shadow-sm ${
                   msg.sender === 'me'
                     ? 'bg-gray-900 text-white'
-                    : 'bg-gray-100 text-gray-900'
+                    : 'bg-white text-gray-900'
                 }`}
               >
-                <p>{msg.content}</p>
+                <p className="leading-relaxed">{msg.content}</p>
                 <p className={`text-xs mt-1 ${
                   msg.sender === 'me' ? 'text-gray-300' : 'text-gray-500'
                 }`}>
@@ -93,18 +93,18 @@ const ChatView = ({ activeChat }) => {
       </div>
 
       {/* Message Input */}
-      <form onSubmit={handleSend} className="p-4 border-t">
-        <div className="flex gap-2">
+      <form onSubmit={handleSend} className="p-4 border-t bg-white">
+        <div className="flex gap-2 max-w-3xl mx-auto">
           <input
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Type a message..."
-            className="flex-1 px-4 py-2 rounded-full border border-gray-200 focus:outline-none focus:border-gray-400 transition-colors"
+            className="flex-1 px-4 py-2 rounded-full border border-gray-200 focus:outline-none focus:border-gray-400 focus:ring-1 focus:ring-gray-400 transition-colors bg-gray-50"
           />
           <button
             type="submit"
-            className="p-2 rounded-full bg-gray-900 text-white hover:bg-gray-800 transition-colors"
+            className="p-2.5 rounded-full bg-gray-900 text-white hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
           >
             <Send size={20} />
           </button>

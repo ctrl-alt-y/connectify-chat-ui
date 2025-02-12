@@ -7,35 +7,35 @@ import { MessageCircle, Users } from 'lucide-react';
 
 const Index = () => {
   const [activeChat, setActiveChat] = useState(null);
-  const [chatType, setChatType] = useState('single'); // 'single' or 'group'
+  const [chatType, setChatType] = useState('single');
 
   return (
     <div className="flex h-screen bg-gray-50">
       <ChatLayout>
         <div className="flex flex-col h-full">
           {/* Chat Type Toggle */}
-          <div className="flex p-4 gap-4 border-b">
+          <div className="flex px-6 py-4 gap-3 border-b bg-white">
             <button
               onClick={() => setChatType('single')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all text-sm font-medium ${
                 chatType === 'single'
-                  ? 'bg-gray-900 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-gray-900 text-white shadow-sm'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
               <MessageCircle size={18} />
-              <span>Chats</span>
+              <span>Direct Messages</span>
             </button>
             <button
               onClick={() => setChatType('group')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all text-sm font-medium ${
                 chatType === 'group'
-                  ? 'bg-gray-900 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-gray-900 text-white shadow-sm'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
               <Users size={18} />
-              <span>Groups</span>
+              <span>Group Chats</span>
             </button>
           </div>
 
