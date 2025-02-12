@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Send } from 'lucide-react';
 
@@ -40,14 +39,12 @@ const ChatView = ({ activeChat }) => {
   const handleSend = (e) => {
     e.preventDefault();
     if (message.trim()) {
-      // Handle sending message
       setMessage('');
     }
   };
 
   return (
     <div className="flex-1 flex flex-col bg-white">
-      {/* Chat Header */}
       <div className="px-6 py-4 border-b flex items-center gap-3 bg-white/50">
         <div className="relative flex-shrink-0">
           <img
@@ -64,8 +61,6 @@ const ChatView = ({ activeChat }) => {
           </p>
         </div>
       </div>
-
-      {/* Messages */}
       <div className="flex-1 overflow-y-auto p-6 bg-gray-50/50">
         <div className="space-y-4 max-w-3xl mx-auto">
           {messages.map((msg) => (
@@ -91,8 +86,6 @@ const ChatView = ({ activeChat }) => {
           ))}
         </div>
       </div>
-
-      {/* Message Input */}
       <form onSubmit={handleSend} className="p-4 border-t bg-white">
         <div className="flex gap-2 max-w-3xl mx-auto">
           <input

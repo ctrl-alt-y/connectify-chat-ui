@@ -3,6 +3,10 @@ import { useState } from 'react';
 import { User, Users } from 'lucide-react';
 
 const ChatList = ({ chatType, activeChat, setActiveChat }) => {
+  // TODO: Backend Integration - Replace static data with API calls
+  // - Fetch user's conversations (both direct messages and group chats)
+  // - Implement real-time updates using WebSocket or subscription
+  // - Get unread message counts from the backend
   const [chats] = useState([
     {
       id: 1,

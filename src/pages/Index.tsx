@@ -6,6 +6,11 @@ import ChatView from '../components/ChatView';
 import { MessageCircle, Users } from 'lucide-react';
 
 const Index = () => {
+  // TODO: Backend Integration - App State Management
+  // - Implement user authentication
+  // - Handle user preferences and settings
+  // - Manage online/offline status
+  // - Store user session data
   const [activeChat, setActiveChat] = useState(null);
   const [chatType, setChatType] = useState('single');
 
